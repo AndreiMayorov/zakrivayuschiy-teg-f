@@ -124,7 +124,7 @@
 .card__image {
   display: block;
   object-fit: cover;
-  object-position: right;
+  object-position: center;
   inline-size: 100%;
   aspect-ratio: 1/1;
 }
@@ -173,9 +173,13 @@
   mix-blend-mode: hard-light;
 }
 
-@supports (-webkit-text-stroke: 1px var(--accent-color-image, #000)) {
+@supports (
+  (text-stroke: 1px var(--accent-color-image, #000)) or
+    (-webkit-text-stroke: 1px var(--accent-color-image, #000))
+) {
   .card__image-decor {
     text-shadow: none;
+    text-stroke: 1px var(--accent-color-image, #000);
     -webkit-text-stroke: 1px var(--accent-color-image, #000);
   }
 }
@@ -211,6 +215,8 @@
   cursor: pointer;
 }
 
+/*для всех button:focus сброшен в global.css*/
+
 .card__icon-button {
   display: flex;
   align-items: center;
@@ -225,26 +231,24 @@
 }
 
 .card__like-button {
-  position: relative;
-  border: 2px solid var(--main-color, #000);
   padding: 0;
   min-inline-size: 130px;
 }
 
 .memory__save-button {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  border: 2px solid var(--main-color, #000);
-  min-block-size: 38px;
   min-inline-size: 339px;
   padding: 15px;
 }
 
 .button:not(.card__icon-button) {
   transition: box-shadow 0.3s ease;
+  position: relative;
+  border: 2px solid var(--main-color, #000);
+  min-block-size: 38px;
 }
 
 .button:not(.card__icon-button)::after {
@@ -287,7 +291,7 @@
   color: var(--main-color, #000);
   background-color: var(--bg-color, #fff);
   inline-size: 357px;
-  block-size: 194px;
+  min-block-size: 194px;
 }
 
 .inset-floppy::backdrop {
@@ -316,11 +320,11 @@
 }
 
 .inset-floppy__button {
-  position: relative;
-  display: block;
-  border: 2px solid var(--main-color, #000);
   inline-size: 100%;
-  min-block-size: 38px;
+}
+
+.inset-floppy__button .button__text {
+  text-transform: uppercase;
 }
 
 @media (width <= 450px) {

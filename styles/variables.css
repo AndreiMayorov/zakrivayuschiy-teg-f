@@ -3,4 +3,25 @@
   --accent-font: 'PressStart2P';
   --bg-color-dialog: #000000bf;
   --fill-color-heart: #ff0000;
+  --card-text-font-weight: 400;
+  --card-title-font-weight: 700;
+  --bg-color: #fff;
+  --main-color: #000;
+  --accent-color-image: #fff;
+  --accent-color-button: #fff;
+  --contour-color-heart: #000;
+  --bg-image:
+    repeating-linear-gradient(
+      to right,
+      #d3d3d3 0 2px,
+      #d3d3d300 2px 4px
+    ),
+    repeating-linear-gradient(
+      #d3d3d3 0 2px,
+      #d3d3d300 2px 4px
+    ),
+    linear-gradient(
+      #e7e7e7 0.01%,
+      #1a1a1a
+      );
 }
